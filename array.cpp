@@ -1,36 +1,42 @@
 #include <iostream>
 using namespace std;
 
-int main(){
-    int arr[5] = {2,5,9,13,17};
-    int start = 0;
-    int end = (sizeof(arr)/sizeof(int))-1;
-    // Linear Search
-    int target = 90;
-    bool flag = false;
 
-    for (int i = 0; i < (sizeof(arr)/sizeof(int)); i++)
-    {
-        if(target == arr[i]){
-            cout << i;
-            flag = true;
-            break;
+int linearSearch(int arr[], int size, int target) {
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == target) {
+            return i; 
         }
     }
-    if (!flag)
-    {
-        cout << -1;
-    }
+    return -1; 
+}
 
-    // Swapping array
-    for (int i = 0; i <= (sizeof(arr)/sizeof(int)); i++){
-        swap(arr[start],arr[end]);
+void reverseArray(int arr[], int size) {
+    int start = 0;
+    int end = size - 1;
+    while (start < end) {
+        swap(arr[start], arr[end]);
         start++;
         end--;
     }
 
-    for (int i = 0; i <= (sizeof(arr)/sizeof(int)); i++){
-        cout << arr[i] << ",";
+    cout << "Reversed Array: ";
+    for (int i = 0; i < size; i++) {
+        cout << arr[i];
+        if (i < size - 1) {
+            cout << ", ";
+        }
     }
+    cout << endl;
+}
+
+int main() {
+    int arr[5] = {2, 5, 9, 13, 17};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int target = 90;    
+    int result = linearSearch(arr, size, target);
+    cout << "Linear Search Result: " << result << endl;
+    reverseArray(arr, size);
+
     return 0;
 }
