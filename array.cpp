@@ -101,6 +101,7 @@ void swapMinMax(int arr[], int size)
 
 void uniqueVal(int arr[], int size)
 {
+    cout << "Unique value of Array:";
     for (int i = 0; i < size; i++)
     {
         bool isUnique = true;
@@ -115,6 +116,21 @@ void uniqueVal(int arr[], int size)
         if (isUnique)
         {
             cout << arr[i] << " ";
+        }
+    }
+}
+
+void intersectionOfTwoArrays(int arr1[], int arr2[], int size1, int size2)
+{
+    cout << "Intersection of Two Arrays:";
+    for (int i = 0; i < size1; i++)
+    {
+        for (int j = 0; j < size2; j++)
+        {
+            if (arr1[i] == arr2[j])
+            {
+                cout << arr1[i] << " ";
+            }
         }
     }
 }
@@ -135,6 +151,9 @@ int main()
 
     uniqueVal(arr, size);
     swapMinMax(arr, size);
+    int a1[4] = {1, 2, 3, 4};
+    int a2[3] = {2, 3, 4};
+    intersectionOfTwoArrays(a1, a2, 4, 3);
 
     return 0;
 }
